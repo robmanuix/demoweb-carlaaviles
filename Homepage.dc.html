@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics=""><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&amp;family=Jost:wght@300;400;500;600&amp;family=Alex+Brush&amp;display=swap" rel="stylesheet"><style>
+:root{--cream:#f7f1e6;--tan:#efe3cd;--white:#fffdf9;--ink:#221e18;--muted:#6f665a;--gold:#ab8a5a;--gold-dark:#8c6f45;--black:#151310}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+#top,#hero,#about,#practice,#consult,#testimonials{scroll-margin-top:96px}
+h1,h2,h3{font-family:'Lora',serif;font-weight:500;margin:0}
+a{color:var(--gold-dark);text-decoration:none}
+a:hover{color:var(--ink)}
+.container{max-width:1180px;margin:0 auto;padding:0 40px}
+.section{padding:96px 0}
+.label{font-size:12px;letter-spacing:2px;color:var(--gold-dark);font-weight:600}
+.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.eyebrow .rule{width:36px;height:1px;background:var(--gold-dark)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;border:none;padding:15px 30px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:1.5px;font-weight:600;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--gold-dark)}
+.btn.disabled{opacity:.4;pointer-events:none;cursor:not-allowed}
+.btn-outline{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:#fff}
+.topbar{background:var(--cream);border-bottom:1px solid rgba(34,30,24,.08);font-size:12.5px;color:var(--muted)}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;height:44px}
+.topbar .quote{font-style:italic}
+.topbar .contacts{display:flex;gap:26px}
+.topbar .contacts span{display:flex;align-items:center;gap:7px}
+.navbar{background:var(--cream);position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(34,30,24,.06)}
+.navbar .container{display:flex;align-items:center;justify-content:space-between;height:96px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:15px;color:var(--gold-dark);flex:none}
+.brand-name{font-size:15px;letter-spacing:2px;font-weight:600;line-height:1.25}
+.brand-name em{display:block;font-style:normal;color:var(--gold-dark)}
+.navlinks{display:flex;gap:38px;list-style:none;margin:0;padding:0}
+.navlinks a{font-size:12.5px;letter-spacing:1.5px;font-weight:500;color:var(--ink);position:relative}
+.navlinks a.active{color:var(--gold-dark)}
+.navlinks a::after{content:'';position:absolute;left:50%;bottom:-16px;width:1.5px;height:0;opacity:0;background:var(--gold);transform:translateX(-50%);transition:height .28s cubic-bezier(.4,0,.2,1),opacity .28s ease}
+.navlinks a:hover::after,.navlinks a.active::after{height:12px;opacity:1}
+.navright{display:flex;align-items:center;gap:28px}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--ink)}
+.mobilenav{display:none}
+.hero{position:relative;background:var(--cream);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url('assets/hero-bg.jpg') center top/cover no-repeat;opacity:.45;z-index:0}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:88px 0 60px}
+.hero-photo{position:relative;aspect-ratio:657/409;overflow:hidden;box-sizing:border-box;border-radius:4px}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-copy h1{font-size:56px;line-height:1.12;margin-bottom:22px}
+.hero-copy p{font-size:16px;line-height:1.75;color:var(--muted);max-width:440px;margin-bottom:34px}
+.signature{position:absolute;right:0;bottom:14px;text-align:right;z-index:1}
+.signature .script{font-family:'Alex Brush',cursive;font-size:38px;color:var(--gold-dark);opacity:.85}
+.signature .role{font-size:11px;letter-spacing:1.5px;color:var(--muted);margin-top:2px}
+.scrolldown{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;padding-bottom:40px;color:var(--muted);font-size:11px;letter-spacing:2px}
+.scrolldown svg{animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:56px}
+.about{background:var(--white);position:relative;overflow:hidden;padding-bottom:96px}
+.about-watermark{position:absolute;left:-30px;top:40px;font-size:150px;font-weight:700;color:rgba(34,30,24,.04);letter-spacing:28px;white-space:nowrap;pointer-events:none}
+.about-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;margin-bottom:76px}
+.about-copy h2{font-size:34px;margin-bottom:20px}
+.about-copy p{font-size:15px;line-height:1.85;color:var(--muted);margin:0 0 20px;max-width:460px}
+.about-media{position:relative;padding-bottom:14%}
+.about-img-main{aspect-ratio:4/5;margin-left:12%;border-radius:4px;background:repeating-linear-gradient(135deg,#e2d4b8,#e2d4b8 10px,#d6c69f 10px,#d6c69f 20px);display:flex;align-items:center;justify-content:center;color:#8a7451;font-size:12px;text-align:center;padding:20px;box-sizing:border-box}
+.about-img-sub{position:absolute;left:0;bottom:0;width:42%;aspect-ratio:3/4;border-radius:10px;box-shadow:0 24px 44px rgba(20,15,10,.28);background:repeating-linear-gradient(135deg,#c9d6dd,#c9d6dd 10px,#b9c9d2 10px,#b9c9d2 20px);display:flex;align-items:center;justify-content:center;color:#4c5a63;font-size:11px;text-align:center;padding:14px;box-sizing:border-box}
+.about-features{padding-top:60px;border-top:1px solid rgba(34,30,24,.08)}
+.feature-icon{width:52px;height:52px;color:var(--gold-dark);margin-bottom:22px}
+.feature h3{font-size:14px;letter-spacing:1.5px;margin-bottom:14px}
+.feature p{font-size:14.5px;line-height:1.75;color:var(--muted);margin:0}
+.practice{background:var(--tan);position:relative;overflow:hidden}
+.practice-watermark{position:absolute;left:0;top:66px;font-size:150px;font-weight:700;color:rgba(34,30,24,.045);letter-spacing:34px;white-space:nowrap;pointer-events:none}
+.practice-head{position:relative;margin-bottom:52px}
+.practice-head h2{font-size:38px}
+.practice-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.pcard-img{aspect-ratio:4/3;overflow:hidden;border-radius:4px}
+.pcard-img img{width:100%;height:100%;object-fit:cover;display:block}
+.pcard-body{padding-top:20px}
+.pcard-body h3{font-size:14px;letter-spacing:1px;margin-bottom:8px}
+.pcard-body a{font-size:11.5px;letter-spacing:1.5px;font-weight:600}
+.practice-divider{position:relative;width:64px;height:1px;background:var(--ink);opacity:.25;margin:56px auto 0}
+.modal-overlay{position:fixed;inset:0;background:rgba(20,17,13,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:300;display:flex;align-items:center;justify-content:center;padding:24px;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-card{position:relative;background:var(--white);max-width:460px;width:100%;padding:48px 40px;border-radius:4px;text-align:center;animation:modalIn .3s cubic-bezier(.2,.6,.2,1)}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:var(--muted);cursor:pointer;padding:4px;display:flex}
+.modal-close:hover{color:var(--ink)}
+.modal-icon{width:52px;height:52px;color:var(--gold-dark);margin:0 auto 22px}
+.modal-card h3{font-size:24px;margin-bottom:16px}
+.modal-card p{font-size:14.5px;line-height:1.8;color:var(--muted);margin:0 0 28px}
+.consult{background:var(--white)}
+.consult-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px}
+.consult h2{font-size:34px;margin-bottom:16px}
+.consult>div>p{color:var(--muted);font-size:15px;line-height:1.75;max-width:400px;margin-bottom:30px}
+.contact-list{display:flex;flex-direction:column;gap:20px}
+.contact-list li{display:flex;gap:14px;align-items:flex-start;list-style:none;font-size:14.5px;color:var(--ink)}
+.contact-list svg{width:18px;height:18px;color:var(--gold-dark);flex:none;margin-top:2px}
+.steps{display:flex;align-items:center;margin-bottom:34px}
+.step{display:flex;flex-direction:column;align-items:center;gap:10px;flex:none}
+.step .dot{width:12px;height:12px;border-radius:50%;border:2px solid #d8cbb0;background:#fff}
+.step.active .dot{background:var(--gold);border-color:var(--gold)}
+.step.done .dot{background:var(--gold-dark);border-color:var(--gold-dark)}
+.step .stepname{font-size:10.5px;letter-spacing:1.5px;color:var(--muted)}
+.stepline{flex:1;height:1px;background:#d8cbb0;position:relative;top:-15px}
+.stepline .fill{height:100%;background:var(--gold-dark)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field input,.field select,.field textarea{background:#f4f0e8;border:1px solid transparent;padding:16px 18px;font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);border-radius:2px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.field textarea{min-height:120px;resize:vertical}
+.field .err{color:#b3492f;font-size:11.5px}
+.field select option[value=""]{color:var(--muted)}
+.terms-check{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;color:var(--muted);margin-bottom:8px;cursor:pointer}
+.terms-check input{margin-top:3px;flex:none;accent-color:var(--gold-dark);width:15px;height:15px}
+.form-actions{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.success{background:#f4f0e8;padding:44px;text-align:center;border-radius:2px}
+.success h3{font-size:22px;margin-bottom:10px}
+.success p{color:var(--muted);margin-bottom:20px}
+.testimonials{background:var(--cream);position:relative;overflow:hidden;text-align:center}
+.testi-watermark{position:absolute;left:-30px;top:110px;font-size:150px;font-weight:700;color:rgba(34,30,24,.045);letter-spacing:26px;white-space:nowrap;pointer-events:none}
+.testi-head h2{font-size:34px;margin-bottom:60px;position:relative}
+.testi-track-wrap{overflow:hidden;position:relative;cursor:grab;user-select:none}
+.testi-track-wrap.dragging{cursor:grabbing}
+.testi-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.testi-track.no-transition{transition:none}
+.testi-slide{flex:0 0 33.333%;padding:0 18px;box-sizing:border-box;opacity:.35;transform:scale(.92);transition:opacity .5s,transform .5s}
+.testi-slide.active{opacity:1;transform:scale(1)}
+.testi-card{background:#fff;padding:44px 38px;box-shadow:0 12px 34px rgba(34,30,24,.06);text-align:left}
+.testi-top{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.testi-toprow{display:flex;align-items:center;gap:14px}
+.testi-top .name-loc{flex:1;min-width:0}
+.avatar{width:52px;height:52px;border-radius:50%;background:repeating-linear-gradient(135deg,#e7dcc7,#e7dcc7 6px,#ddcfb2 6px,#ddcfb2 12px);flex:none}
+.testi-name{font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.testi-loc{font-size:12px;color:var(--muted)}
+.stars{color:var(--gold);font-size:13px}
+.testi-card p{font-size:14.5px;line-height:1.75;color:var(--muted);margin:0;font-style:italic}
+.testi-dots{display:flex;justify-content:center;gap:10px;margin-top:36px;position:relative}
+.tdot{width:8px;height:8px;border-radius:50%;background:#ddd0b4;border:none;cursor:pointer;padding:0}
+.tdot.active{background:var(--gold-dark);width:22px;border-radius:5px}
+.footer{background:var(--black);color:rgba(255,255,255,.7)}
+.footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.1fr;gap:50px;padding:80px 0 56px}
+.footer h4{color:#fff;font-size:13px;letter-spacing:1.5px;margin-bottom:22px}
+.footer .brand-name{color:#fff}
+.footer p.tag{font-size:13px;line-height:1.7;margin-top:16px;max-width:220px;color:rgba(255,255,255,.5)}
+.footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px}
+.footer ul li a{color:rgba(255,255,255,.7);font-size:13.5px}
+.footer ul li a:hover{color:var(--gold)}
+.footer .contact-list li{color:rgba(255,255,255,.7)}
+.footer .contact-list svg{color:var(--gold)}
+.newsletter-form{display:flex;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin-top:4px}
+.newsletter-form input{flex:1;background:transparent;border:none;padding:15px 16px;color:#fff;font-family:'Jost',sans-serif;font-size:13px}
+.newsletter-form input::placeholder{color:rgba(255,255,255,.4)}
+.newsletter-form button{background:var(--gold);border:none;width:46px;color:#fff;cursor:pointer;flex:none}
+.newsletter-note{font-size:12px;color:var(--gold);margin-top:10px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:26px 0;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:rgba(255,255,255,.45)}
+.social{display:flex;gap:12px}
+.social a{width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7)}
+.social a:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.preloader{position:fixed;inset:0;background:var(--cream);z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .6s ease,visibility .6s ease}
+.preloader.hide{opacity:0;visibility:hidden;pointer-events:none}
+.preloader-logo{display:flex;flex-direction:column;align-items:center;gap:12px}
+.preloader-mark{width:60px;height:60px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:19px;color:var(--gold-dark)}
+.preloader-name{font-size:14px;letter-spacing:3px;font-weight:600;color:var(--ink)}
+.spinner{width:30px;height:30px;border:2px solid rgba(34,30,24,.15);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.hero-anim{opacity:0}
+.hero-anim-2{}
+.hero-anim-3{}
+.hero-anim-4{}
+#top.loaded .hero-anim{animation:fadeUp .85s cubic-bezier(.2,.6,.2,1) forwards}
+#top.loaded .hero-anim-2{animation-delay:.15s}
+#top.loaded .hero-anim-3{animation-delay:.32s}
+#top.loaded .hero-anim-4{animation-delay:.48s}
+.header-anim{opacity:0}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+#top.loaded .header-anim{animation:fadeDown .7s cubic-bezier(.2,.6,.2,1) forwards}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.18s}
+.reveal-d3{transition-delay:.28s}
+.practice-grid .pcard:nth-child(1){transition-delay:.05s}
+.practice-grid .pcard:nth-child(2){transition-delay:.12s}
+.practice-grid .pcard:nth-child(3){transition-delay:.19s}
+.practice-grid .pcard:nth-child(4){transition-delay:.26s}
+.practice-grid .pcard:nth-child(5){transition-delay:.33s}
+.practice-grid .pcard:nth-child(6){transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){.hero-anim,.reveal,.header-anim{animation:none!important;transition:none!important;opacity:1!important;transform:none!important}}
+.totop{position:fixed;right:28px;bottom:28px;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 22px rgba(34,30,24,.25);z-index:50;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s,background .2s}
+.totop.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.totop:hover{background:var(--gold-dark)}
+@media(max-width:980px){.hero-grid,.features,.practice-grid,.consult-grid,.footer-top,.about-grid{grid-template-columns:1fr}.navlinks{display:none}.burger{display:flex}.testi-slide{flex:0 0 100%}.form-row{grid-template-columns:1fr}.about-media{margin-top:40px;padding-bottom:20%}}
+</style></helmet>
+<div id="top" class="{{ pageLoadedClass }}">
+<div class="{{ preloaderClass }}"><div class="preloader-logo"><span class="preloader-mark">CA</span><span class="preloader-name">CARLA S. ÁVILA</span></div><div class="spinner"></div></div>
+<div class="topbar header-anim"><div class="container"><span class="quote">"Defending your rights, as if they were our own."</span><div class="contacts"><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8a15.4 15.4 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.36 11 11 0 0 0 3.4.55 1.5 1.5 0 0 1 1.5 1.5V21a1.5 1.5 0 0 1-1.5 1.5A18.5 18.5 0 0 1 2.5 4.5 1.5 1.5 0 0 1 4 3h3.75a1.5 1.5 0 0 1 1.5 1.5 11 11 0 0 0 .55 3.4 1.5 1.5 0 0 1-.37 1.5z"></path></svg>(718) 340-3685</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M3 6l9 7 9-7"></path></svg>miabogadacarla@gmail.com</span></div></div></div>
+<div class="navbar header-anim"><div class="container">
+<a href="#top" class="brand"><span class="brand-mark">CA</span><span class="brand-name">CARLA S.<em>ÁVILA</em></span></a>
+<ul class="navlinks"><li><a href="#top" class="{{ navHomeClass }}">HOME</a></li><li><a href="#about" class="{{ navAboutClass }}">ABOUT US</a></li><li><a href="#practice" class="{{ navPracticeClass }}">PRACTICE AREAS</a></li><li><a href="#testimonials" class="{{ navTestiClass }}">TESTIMONIALS</a></li><li><a href="#consult" class="{{ navContactClass }}">CONTACT</a></li></ul>
+<div class="navright"><a class="btn" href="#consult">FREE CONSULTATION</a><button class="burger" onclick="{{ toggleMobile }}" aria-label="Menu"><span></span><span></span><span></span></button></div>
+</div>
+<sc-if value="{{ mobileOpen }}"><div class="mobilenav" style="display:flex;flex-direction:column;padding:20px 40px 30px;gap:18px;background:var(--cream);border-top:1px solid rgba(34,30,24,.08)"><a href="#top" onclick="{{ closeMobile }}">HOME</a><a href="#about" onclick="{{ closeMobile }}">ABOUT US</a><a href="#practice" onclick="{{ closeMobile }}">PRACTICE AREAS</a><a href="#testimonials" onclick="{{ closeMobile }}">TESTIMONIALS</a><a href="#consult" onclick="{{ closeMobile }}">CONTACT</a></div></sc-if>
+</div>
+<section class="hero" id="hero">
+<div class="container"><div class="hero-grid">
+<div class="hero-photo hero-anim"><img src="assets/carla-hero.webp" alt="Carla S. Ávila"></div>
+<div class="hero-copy"><h1 class="hero-anim hero-anim-2">Hispanic Legal<br>Services</h1><p class="hero-anim hero-anim-3">Legal professional serving the entire Hispanic community in the United States, with over 20 years of experience.</p><a class="btn hero-anim hero-anim-4" href="#consult">CONTACT NOW <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div></div>
+<div class="signature container"><span class="script">Carla S. Ávila</span><div class="role">CEO, ATTORNA LAW FIRM</div></div>
+<div class="scrolldown">SCROLL DOWN<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v16M6 14l6 6 6-6"></path></svg></div>
+</section>
+<section class="about section" id="about"><span class="about-watermark">ABOUT</span>
+<div class="container about-grid">
+<div class="about-copy reveal"><div class="eyebrow"><span class="rule"></span><span class="label">ABOUT US</span></div><h2>About Carla S. Ávila</h2><p>For more than 20 years, Carla S. Ávila has stood beside Hispanic families and individuals across the United States, turning complex legal processes into clear, actionable paths forward.</p><p>Founded on integrity, diligence, and genuine care for every client, our firm delivers tailored legal solutions — in the language and cultural context our community deserves.</p><a class="btn" href="#consult">CONTACT US <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+<div class="about-media reveal reveal-d2"><div class="about-img-main">PHOTO — courthouse columns, low angle</div><div class="about-img-sub">PHOTO — law journals on a shelf</div></div>
+</div>
+<div class="container features about-features">
+<div class="feature reveal reveal-d1"><svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 18l18-10 18 10"></path><line x1="6" y1="18" x2="42" y2="18"></line><rect x="10" y="22" width="4" height="14"></rect><rect x="22" y="22" width="4" height="14"></rect><rect x="34" y="22" width="4" height="14"></rect><rect x="6" y="38" width="36" height="4"></rect></svg><h3>WINNING AWARD LAW FIRM</h3><p>Lawyers and attorneys act as both legal advisors and advocates, guiding individuals and businesses through intricate legal processes.</p></div>
+<div class="feature reveal reveal-d2"><svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="6" width="24" height="32" rx="1"></rect><line x1="15" y1="15" x2="27" y2="15"></line><line x1="15" y1="22" x2="27" y2="22"></line><line x1="15" y1="29" x2="22" y2="29"></line><path d="M30 30l9 9M39 30l-9 9"></path></svg><h3>CONFIDENTIAL</h3><p>Your information is held in strict confidence with us. We prioritize safeguarding your sensitive data. Rest assured, your case details remain private.</p></div>
+<div class="feature reveal reveal-d3"><svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="24" y1="6" x2="24" y2="36"></line><line x1="10" y1="14" x2="38" y2="14"></line><line x1="10" y1="14" x2="4" y2="26"></line><line x1="10" y1="14" x2="16" y2="26"></line><line x1="38" y1="14" x2="32" y2="26"></line><line x1="38" y1="14" x2="44" y2="26"></line><circle cx="7" cy="27" r="9"></circle><circle cx="41" cy="27" r="9"></circle><rect x="14" y="40" width="20" height="4"></rect></svg><h3>LEGAL PROTECTION</h3><p>We provide robust legal protection for our clients. Your rights and interests are our top priority. Rest assured for safeguarding your legal rights.</p></div>
+</div></section>
+<section class="practice section" id="practice"><span class="practice-watermark">PRACTICE</span>
+<div class="container"><div class="practice-head reveal"><div class="eyebrow"><span class="rule"></span><span class="label">OUR EXPERTISE</span></div><h2>Legal Practice Areas</h2></div>
+<div class="practice-grid">
+<div class="pcard reveal"><div class="pcard-img"><img src="assets/migration.webp" alt="Migration"></div><div class="pcard-body"><h3>Migration</h3><a href="#" onclick="{{ openMigration }}">LEARN MORE</a></div></div>
+<div class="pcard reveal"><div class="pcard-img"><img src="assets/deportation-defense.webp" alt="Defense Against Deportation"></div><div class="pcard-body"><h3>Defense Against Deportation</h3><a href="#" onclick="{{ openDeportation }}">LEARN MORE</a></div></div>
+<div class="pcard reveal"><div class="pcard-img"><img src="assets/visas.webp" alt="Visas"></div><div class="pcard-body"><h3>Visas</h3><a href="#" onclick="{{ openVisas }}">LEARN MORE</a></div></div>
+<div class="pcard reveal"><div class="pcard-img"><img src="assets/criminal-cases.webp" alt="Criminal Cases"></div><div class="pcard-body"><h3>Criminal Cases</h3><a href="#" onclick="{{ openCriminal }}">LEARN MORE</a></div></div>
+<div class="pcard reveal"><div class="pcard-img"><img src="assets/notary-public.webp" alt="Notary Public"></div><div class="pcard-body"><h3>Notary Public</h3><a href="#" onclick="{{ openNotary }}">LEARN MORE</a></div></div>
+<div class="pcard reveal"><div class="pcard-img"><img src="assets/family-law.webp" alt="Family Law"></div><div class="pcard-body"><h3>Family Law</h3><a href="#" onclick="{{ openFamily }}">LEARN MORE</a></div></div>
+</div>
+<div class="practice-divider"></div></div></section>
+<sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+<div class="modal-overlay" onclick="{{ closeModal }}">
+<div class="modal-card" onclick="{{ stopProp }}">
+<button class="modal-close" onclick="{{ closeModal }}" aria-label="Close">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+</button>
+<div class="modal-icon">
+<sc-if value="{{ isIcon0 }}"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="24" cy="24" r="17"></circle><ellipse cx="24" cy="24" rx="7" ry="17"></ellipse><line x1="7" y1="24" x2="41" y2="24"></line><line x1="10" y1="14" x2="38" y2="14"></line><line x1="10" y1="34" x2="38" y2="34"></line></svg></sc-if>
+<sc-if value="{{ isIcon1 }}"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M24 6l15 6v11c0 10-7 16-15 19-8-3-15-9-15-19V12z"></path><path d="M17 24l5 5 9-10"></path></svg></sc-if>
+<sc-if value="{{ isIcon2 }}"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="10" width="32" height="28" rx="2"></rect><line x1="24" y1="10" x2="24" y2="38" stroke-dasharray="3 4"></line><circle cx="24" cy="24" r="5"></circle></svg></sc-if>
+<sc-if value="{{ isIcon3 }}"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="10" y="8" width="12" height="12" rx="1" transform="rotate(-35 16 14)"></rect><line x1="21" y1="19" x2="30" y2="28"></line><rect x="27" y="33" width="16" height="5"></rect></svg></sc-if>
+<sc-if value="{{ isIcon4 }}"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="24" cy="18" r="12"></circle><path d="M17 28l-4 14 11-6 11 6-4-14"></path></svg></sc-if>
+<sc-if value="{{ isIcon5 }}"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M24 6L8 16v6c0 12 7 18 16 20 9-2 16-8 16-20v-6z"></path><path d="M16 24h16M24 16v16"></path></svg></sc-if>
+</div>
+<h3>{{ modalTitle }}</h3>
+<p>{{ modalDesc }}</p>
+<a class="btn" href="#consult" onclick="{{ closeModal }}">REQUEST CONSULTATION <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</sc-if>
+<section class="consult section" id="consult"><div class="container consult-grid">
+<div class="reveal"><h2>Free Consultation</h2><p>Law is a complex matter that can lead to significant problems if disregarded. Allow us to assist you!</p>
+<ul class="contact-list">
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8a15.4 15.4 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.36 11 11 0 0 0 3.4.55 1.5 1.5 0 0 1 1.5 1.5V21a1.5 1.5 0 0 1-1.5 1.5A18.5 18.5 0 0 1 2.5 4.5 1.5 1.5 0 0 1 4 3h3.75a1.5 1.5 0 0 1 1.5 1.5 11 11 0 0 0 .55 3.4 1.5 1.5 0 0 1-.37 1.5z"></path></svg>(718) 340-3685</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M3 6l9 7 9-7"></path></svg>miabogadacarla@gmail.com</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>Mon - Fri 9.00-18.00</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.4"></circle></svg>90-14 Elmhurst Ave, 1st Floor<br>Jackson Heights, NY 11372</li>
+</ul></div>
+<div class="reveal reveal-d2">
+<div class="steps"><sc-for list="{{ stepStates }}" as="s" hint-placeholder-count="3"><div class="step {{ s.state }}"><div class="dot"></div><div class="stepname">STEP {{ s.n }}</div></div><sc-if value="{{ s.showLine }}"><div class="stepline"><div class="fill" style="width:{{ s.lineFill }}"></div></div></sc-if></sc-for></div>
+<sc-if value="{{ formSubmitted }}" hint-placeholder-val="{{ false }}">
+<div class="success"><h3>Thank you, {{ formData.firstName }}!</h3><p>Your consultation request has been received. We'll reach out within one business day.</p><a class="btn btn-outline" href="#" onclick="{{ resetForm }}">SEND ANOTHER REQUEST</a></div>
+</sc-if>
+<sc-if value="{{ formStep1 }}" hint-placeholder-val="{{ true }}">
+<div class="field" style="margin-bottom:18px"><select onChange="{{ setPracticeArea }}" value="{{ formData.practiceArea }}"><option value="" disabled>What is this regarding?*</option><option>Migration</option><option>Defense Against Deportation</option><option>Visas</option><option>Criminal Cases</option><option>Notary Public</option><option>Family Law</option></select><sc-if value="{{ formErrors.practiceArea }}"><span class="err">{{ formErrors.practiceArea }}</span></sc-if></div>
+<div class="field" style="margin-bottom:18px"><select onChange="{{ setPriorAttorney }}" value="{{ formData.priorAttorney }}"><option value="" disabled>Consulted another attorney?*</option><option>Yes</option><option>No</option></select><sc-if value="{{ formErrors.priorAttorney }}"><span class="err">{{ formErrors.priorAttorney }}</span></sc-if></div>
+<div class="field" style="margin-bottom:18px"><select onChange="{{ setUrgency }}" value="{{ formData.urgency }}"><option value="" disabled>How urgent is this?*</option><option>Immediate (within days)</option><option>Within a few weeks</option><option>Just exploring options</option></select><sc-if value="{{ formErrors.urgency }}"><span class="err">{{ formErrors.urgency }}</span></sc-if></div>
+<div class="field" style="margin-bottom:18px"><select onChange="{{ setReferralSource }}" value="{{ formData.referralSource }}"><option value="" disabled>How did you hear about us?*</option><option>Referral</option><option>Google Search</option><option>Social Media</option><option>Other</option></select><sc-if value="{{ formErrors.referralSource }}"><span class="err">{{ formErrors.referralSource }}</span></sc-if></div>
+<div class="form-actions"><span></span><a class="btn {{ step1NextClass }}" href="#" onclick="{{ nextStep }}">NEXT <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</sc-if>
+<sc-if value="{{ formStep2 }}">
+<div class="form-row"><div class="field"><input type="text" placeholder="First name*" value="{{ formData.firstName }}" onChange="{{ setFirstName }}"><sc-if value="{{ formErrors.firstName }}"><span class="err">{{ formErrors.firstName }}</span></sc-if></div><div class="field"><input type="text" placeholder="Last name*" value="{{ formData.lastName }}" onChange="{{ setLastName }}"><sc-if value="{{ formErrors.lastName }}"><span class="err">{{ formErrors.lastName }}</span></sc-if></div></div>
+<div class="form-row"><div class="field"><input type="email" placeholder="Email*" value="{{ formData.email }}" onChange="{{ setEmail }}"><sc-if value="{{ formErrors.email }}"><span class="err">{{ formErrors.email }}</span></sc-if></div><div class="field"><input type="tel" placeholder="Phone*" value="{{ formData.phone }}" onChange="{{ setPhone }}"><sc-if value="{{ formErrors.phone }}"><span class="err">{{ formErrors.phone }}</span></sc-if></div></div>
+<div class="field" style="margin-bottom:18px"><input type="text" placeholder="Home Address*" value="{{ formData.address }}" onChange="{{ setAddress }}"><sc-if value="{{ formErrors.address }}"><span class="err">{{ formErrors.address }}</span></sc-if></div>
+<div class="form-actions"><a class="btn btn-outline" href="#" onclick="{{ prevStep }}">BACK</a><a class="btn {{ step2NextClass }}" href="#" onclick="{{ nextStep }}">NEXT <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</sc-if>
+<sc-if value="{{ formStep3 }}">
+<label class="terms-check"><input type="checkbox" checked="{{ formData.acceptedTerms }}" onChange="{{ toggleTerms }}"><span>I accept the Terms and Conditions and Privacy Policy. This includes consent for Carla S. Ávila Law Firm to contact me regarding my consultation request, and an acknowledgment that submitting this form does not by itself create an attorney-client relationship until formally confirmed.</span></label>
+<sc-if value="{{ formErrors.acceptedTerms }}"><span class="err">{{ formErrors.acceptedTerms }}</span></sc-if>
+<div class="form-actions"><a class="btn btn-outline" href="#" onclick="{{ prevStep }}">BACK</a><a class="btn {{ step3SubmitClass }}" href="#" onclick="{{ submitForm }}">SUBMIT</a></div>
+</sc-if>
+</div>
+</div></section>
+<section class="testimonials section" id="testimonials"><span class="testi-watermark">TESTIMONIALS</span>
+<div class="container testi-head reveal"><div class="eyebrow" style="justify-content:center"><span class="rule"></span></div><h2>What Our Clients Say</h2></div>
+<div class="container testi-track-wrap {{ dragClass }}" onMouseEnter="{{ onTestiEnter }}" onMouseLeave="{{ onTestiLeave }}" onMouseDown="{{ onTestiDown }}" onMouseMove="{{ onTestiMove }}" onMouseUp="{{ onTestiUp }}"><div class="testi-track {{ trackTransitionClass }}" style="transform:{{ trackTransform }}">
+<sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="5">
+<div class="testi-slide {{ t.activeClass }}"><div class="testi-card"><div class="testi-top"><div class="testi-toprow"><div class="avatar"></div><div class="name-loc"><div class="testi-name">{{ t.name }}</div><div class="testi-loc">{{ t.location }}</div></div></div><div class="stars">★★★★★</div></div><p>"{{ t.quote }}"</p></div></div>
+</sc-for>
+</div></div>
+<div class="testi-dots"><sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="5"><button class="tdot {{ t.dotClass }}" onclick="{{ t.goTo }}"></button></sc-for></div>
+</section>
+<footer class="footer"><div class="container footer-top">
+<div><div class="brand"><span class="brand-mark" style="border-color:var(--gold)">CA</span><span class="brand-name">CARLA S.<em style="color:var(--gold)">ÁVILA</em></span></div><p class="tag">Defending your rights, as if they were our own.</p><div class="social" style="margin-top:22px"><a href="#top"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><line x1="3" y1="12" x2="21" y2="12"></line></svg></a><a href="#top"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="4"></rect><circle cx="12" cy="12" r="4"></circle></svg></a></div></div>
+<div><h4>CONTACT INFO</h4><ul class="contact-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8a15.4 15.4 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.36 11 11 0 0 0 3.4.55 1.5 1.5 0 0 1 1.5 1.5V21a1.5 1.5 0 0 1-1.5 1.5A18.5 18.5 0 0 1 2.5 4.5 1.5 1.5 0 0 1 4 3h3.75a1.5 1.5 0 0 1 1.5 1.5 11 11 0 0 0 .55 3.4 1.5 1.5 0 0 1-.37 1.5z"></path></svg>(718) 340-3685</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M3 6l9 7 9-7"></path></svg>miabogadacarla@gmail.com</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>Mon - Fri 9.00-18.00</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.4"></circle></svg>90-14 Elmhurst Ave, 1st Floor<br>Jackson Heights, NY 11372</li></ul></div>
+<div><h4>USEFUL LINKS</h4><ul><li><a href="#practice">Practice Areas</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#about">About Us</a></li><li><a href="#consult">Consultation</a></li></ul></div>
+<div><h4>NEWSLETTER</h4><p style="font-size:13px;color:rgba(255,255,255,.5);margin:0 0 14px">Subscribe to our newsletter</p>
+<sc-if value="{{ newsletterSubmitted }}" hint-placeholder-val="{{ false }}"><div class="newsletter-note">Thanks — you're subscribed!</div></sc-if>
+<sc-if value="{{ newsletterSubmittedNot }}" hint-placeholder-val="{{ true }}"><form class="newsletter-form" onSubmit="{{ subscribeNewsletter }}"><input type="email" placeholder="Enter Your Email Address" value="{{ newsletterEmail }}" onChange="{{ setNewsletterEmail }}"><button type="submit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></form></sc-if>
+</div>
+</div>
+<div class="container footer-bottom"><span>Copyright © 2026 Carla S. Ávila. All Rights Reserved.</span></div>
+</footer>
+<button class="totop {{ showTopClass }}" onclick="{{ scrollToTop }}" aria-label="Scroll to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"></path></svg></button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const AREA_INFO=[
+{title:'Migration',desc:'From family petitions to employment-based green cards, we guide clients through every stage of the U.S. migration process with clear, honest counsel at every step.'},
+{title:'Defense Against Deportation',desc:'We build strong defense strategies for individuals facing removal proceedings, working to keep families together and protect the futures they have built here.'},
+{title:'Visas',desc:'Work, family, and humanitarian visas each carry their own requirements. We prepare thorough applications designed to minimize delays and denials.'},
+{title:'Criminal Cases',desc:'Facing criminal charges can affect your immigration status and your future. Our team defends your rights in court while protecting your broader legal standing.'},
+{title:'Notary Public',desc:'Certified notary services for powers of attorney, affidavits, and other legal documents — accurate, confidential, and completed on your schedule.'},
+{title:'Family Law',desc:'From custody to divorce proceedings, we approach family matters with the sensitivity they deserve while advocating firmly for your interests.'}
+];
+const TESTIMONIALS=[{name:'Sarah White',location:'New York, NY',quote:'Carla and her team guided my family through a stressful visa process with so much patience. We always felt informed and cared for.'},{name:'Carlos Guerrero',location:'Washington D.C.',quote:'The team on this website is great. I had been really pleased with my family. The team is very professional and takes care of the customers.'},{name:'Elizabeth Brown',location:'Los Angeles, CA',quote:'Professional, warm, and incredibly thorough. Carla explained every step of our case in plain language and delivered real results.'},{name:'Maria Fernandez',location:'Miami, FL',quote:'From our first call to the final hearing, the office kept us updated and treated us like family. Highly recommend to anyone in need.'},{name:'James Ortiz',location:'Houston, TX',quote:'Exceptional legal counsel and genuine care for our situation. I recommend this firm to anyone facing immigration challenges.'}];
+class Component extends DCLogic{
+state={mobileOpen:false,testiIndex:0,formStep:1,formSubmitted:false,formData:{practiceArea:'',priorAttorney:'',urgency:'',referralSource:'',firstName:'',lastName:'',email:'',phone:'',address:'',acceptedTerms:false},formErrors:{},newsletterEmail:'',newsletterSubmitted:false,showTop:false,testiPaused:false,testiDragging:false,testiDragStartX:0,testiDragDeltaPx:0,testiNarrow:typeof window!=='undefined'&&window.innerWidth<=980,activeSection:'top',preloaderHidden:false,modalOpen:false,modalIndex:0};
+componentDidMount(){
+if(typeof document!=='undefined')document.body.style.overflow='hidden';
+this._preloaderTimer=setTimeout(()=>{this.setState({preloaderHidden:true});if(typeof document!=='undefined')document.body.style.overflow='';},3000);
+this._onScroll=()=>{
+const y=window.scrollY;
+const show=y>500;if(show!==this.state.showTop)this.setState({showTop:show});
+const navOffset=110;const cs=y+navOffset;
+const aboutEl=document.getElementById('about');
+const practiceEl=document.getElementById('practice');
+const consultEl=document.getElementById('consult');
+const testiEl=document.getElementById('testimonials');
+let active='top';
+if(aboutEl&&cs>=aboutEl.offsetTop)active='about';
+if(practiceEl&&cs>=practiceEl.offsetTop)active='practice';
+if(consultEl&&cs>=consultEl.offsetTop)active='consult';
+if(testiEl&&cs>=testiEl.offsetTop)active='testimonials';
+if(active!==this.state.activeSection)this.setState({activeSection:active});
+};
+window.addEventListener('scroll',this._onScroll,{passive:true});
+this._onResize=()=>{const narrow=window.innerWidth<=980;if(narrow!==this.state.testiNarrow)this.setState({testiNarrow:narrow});};
+window.addEventListener('resize',this._onResize);
+this._testiTimer=setInterval(()=>{
+if(!this.state.testiPaused&&!this.state.testiDragging){
+this.setState(s=>({testiIndex:(s.testiIndex+1)%TESTIMONIALS.length}));
+}
+},4500);
+this._onWindowMouseUp=()=>{if(this.state.testiDragging)this.endTestiDrag();};
+window.addEventListener('mouseup',this._onWindowMouseUp);
+if(typeof IntersectionObserver!=='undefined'){
+this._revealObserver=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){entry.target.classList.add('in');this._revealObserver.unobserve(entry.target);}
+});
+},{threshold:0.15,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>this._revealObserver.observe(el));
+}else{
+document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+}
+}
+componentWillUnmount(){window.removeEventListener('scroll',this._onScroll);window.removeEventListener('resize',this._onResize);clearInterval(this._testiTimer);window.removeEventListener('mouseup',this._onWindowMouseUp);clearTimeout(this._preloaderTimer);if(this._revealObserver)this._revealObserver.disconnect();}
+scrollToTop=(e)=>{if(e&&e.preventDefault)e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});};
+onTestiEnter=()=>this.setState({testiPaused:true});
+onTestiLeave=()=>{if(this.state.testiDragging)this.endTestiDrag();this.setState({testiPaused:false});};
+onTestiDown=(e)=>{this.setState({testiDragging:true,testiDragStartX:e.clientX,testiDragDeltaPx:0});};
+onTestiMove=(e)=>{if(!this.state.testiDragging)return;this.setState({testiDragDeltaPx:e.clientX-this.state.testiDragStartX});};
+onTestiUp=()=>{this.endTestiDrag();};
+openModalAt=(i)=>(e)=>{if(e&&e.preventDefault)e.preventDefault();this.setState({modalOpen:true,modalIndex:i});};
+closeModal=(e)=>{if(e&&e.preventDefault)e.preventDefault();this.setState({modalOpen:false});};
+stopProp=(e)=>{if(e&&e.stopPropagation)e.stopPropagation();};
+endTestiDrag(){
+const delta=this.state.testiDragDeltaPx;
+const len=TESTIMONIALS.length;
+let idx=this.state.testiIndex;
+if(delta<=-70)idx=(idx+1)%len;
+else if(delta>=70)idx=(idx-1+len)%len;
+this.setState({testiDragging:false,testiDragDeltaPx:0,testiIndex:idx});
+}
+toggleMobile=()=>this.setState(s=>({mobileOpen:!s.mobileOpen}));
+closeMobile=()=>this.setState({mobileOpen:false});
+goToTestimonial=(i)=>this.setState({testiIndex:i});
+setFirstName=(e)=>this.updateField('firstName',e.target.value);
+setLastName=(e)=>this.updateField('lastName',e.target.value);
+setEmail=(e)=>this.updateField('email',e.target.value);
+setPhone=(e)=>this.updateField('phone',e.target.value);
+setPracticeArea=(e)=>this.updateField('practiceArea',e.target.value);
+setPriorAttorney=(e)=>this.updateField('priorAttorney',e.target.value);
+setUrgency=(e)=>this.updateField('urgency',e.target.value);
+setReferralSource=(e)=>this.updateField('referralSource',e.target.value);
+setAddress=(e)=>this.updateField('address',e.target.value);
+toggleTerms=(e)=>this.updateField('acceptedTerms',e.target.checked);
+setNewsletterEmail=(e)=>this.setState({newsletterEmail:e.target.value});
+updateField(key,val){this.setState(s=>({formData:{...s.formData,[key]:val},formErrors:{...s.formErrors,[key]:null}}));}
+validateStep(step){
+const d=this.state.formData;const errs={};
+if(step===1){
+if(!d.practiceArea)errs.practiceArea='Please select an option';
+if(!d.priorAttorney)errs.priorAttorney='Please select an option';
+if(!d.urgency)errs.urgency='Please select an option';
+if(!d.referralSource)errs.referralSource='Please select an option';
+}
+if(step===2){
+if(!d.firstName.trim())errs.firstName='Required';
+if(!d.lastName.trim())errs.lastName='Required';
+if(!d.email.trim())errs.email='Required';else if(!/^\S+@\S+\.\S+$/.test(d.email))errs.email='Enter a valid email';
+if(!d.phone.trim())errs.phone='Required';
+if(!d.address.trim())errs.address='Required';
+}
+if(step===3){
+if(!d.acceptedTerms)errs.acceptedTerms='You must accept the terms and conditions';
+}
+return errs;
+}
+nextStep=(e)=>{
+if(e&&e.preventDefault)e.preventDefault();
+const errs=this.validateStep(this.state.formStep);
+if(Object.keys(errs).length){this.setState({formErrors:errs});return;}
+this.setState(s=>({formStep:Math.min(3,s.formStep+1),formErrors:{}}));
+};
+prevStep=(e)=>{if(e&&e.preventDefault)e.preventDefault();this.setState(s=>({formStep:Math.max(1,s.formStep-1),formErrors:{}}));};
+submitForm=(e)=>{
+if(e&&e.preventDefault)e.preventDefault();
+const errs=this.validateStep(3);
+if(Object.keys(errs).length){this.setState({formErrors:errs});return;}
+this.setState({formSubmitted:true});
+};
+resetForm=(e)=>{
+if(e&&e.preventDefault)e.preventDefault();
+this.setState({formStep:1,formSubmitted:false,formErrors:{},formData:{practiceArea:'',priorAttorney:'',urgency:'',referralSource:'',firstName:'',lastName:'',email:'',phone:'',address:'',acceptedTerms:false}});
+};
+subscribeNewsletter=(e)=>{
+if(e&&e.preventDefault)e.preventDefault();
+if(this.state.newsletterEmail.trim())this.setState({newsletterSubmitted:true});
+};
+renderVals(){
+const s=this.state;
+const len=TESTIMONIALS.length;
+const testimonials=TESTIMONIALS.map((t,i)=>({...t,activeClass:i===s.testiIndex?'active':'',dotClass:i===s.testiIndex?'active':'',goTo:()=>this.goToTestimonial(i)}));
+const iw=s.testiNarrow?100:100/3;
+const shift=(100-iw)/2-s.testiIndex*iw;
+const track=`translateX(calc(${shift}% + ${s.testiDragDeltaPx}px))`;
+const stepStates=[1,2,3].map(n=>({n,state:n<s.formStep?'done':n===s.formStep?'active':'pending',showLine:n<3,lineFill:n<s.formStep?'100%':'0%'}));
+return{
+mobileOpen:s.mobileOpen,toggleMobile:this.toggleMobile,closeMobile:this.closeMobile,
+testimonials,trackTransform:track,
+formStep1:s.formStep===1&&!s.formSubmitted,formStep2:s.formStep===2&&!s.formSubmitted,formStep3:s.formStep===3&&!s.formSubmitted,
+formData:s.formData,formErrors:s.formErrors,formSubmitted:s.formSubmitted,
+setFirstName:this.setFirstName,setLastName:this.setLastName,setEmail:this.setEmail,setPhone:this.setPhone,setPracticeArea:this.setPracticeArea,setPriorAttorney:this.setPriorAttorney,setUrgency:this.setUrgency,setReferralSource:this.setReferralSource,setAddress:this.setAddress,toggleTerms:this.toggleTerms,
+step1NextClass:(s.formData.practiceArea&&s.formData.priorAttorney&&s.formData.urgency&&s.formData.referralSource)?'':'disabled',
+step2NextClass:(s.formData.firstName.trim()&&s.formData.lastName.trim()&&s.formData.email.trim()&&s.formData.phone.trim()&&s.formData.address.trim())?'':'disabled',
+step3SubmitClass:s.formData.acceptedTerms?'':'disabled',
+nextStep:this.nextStep,prevStep:this.prevStep,submitForm:this.submitForm,resetForm:this.resetForm,
+stepStates,
+newsletterEmail:s.newsletterEmail,setNewsletterEmail:this.setNewsletterEmail,subscribeNewsletter:this.subscribeNewsletter,newsletterSubmitted:s.newsletterSubmitted,newsletterSubmittedNot:!s.newsletterSubmitted,
+showTopClass:s.showTop?'show':'',scrollToTop:this.scrollToTop,
+dragClass:s.testiDragging?'dragging':'',trackTransitionClass:s.testiDragging?'no-transition':'',
+onTestiEnter:this.onTestiEnter,onTestiLeave:this.onTestiLeave,onTestiDown:this.onTestiDown,onTestiMove:this.onTestiMove,onTestiUp:this.onTestiUp,
+navHomeClass:s.activeSection==='top'?'active':'',navAboutClass:s.activeSection==='about'?'active':'',navPracticeClass:s.activeSection==='practice'?'active':'',navContactClass:s.activeSection==='consult'?'active':'',navTestiClass:s.activeSection==='testimonials'?'active':'',
+preloaderClass:s.preloaderHidden?'preloader hide':'preloader',
+pageLoadedClass:s.preloaderHidden?'loaded':'',
+modalOpen:s.modalOpen,closeModal:this.closeModal,stopProp:this.stopProp,
+openMigration:this.openModalAt(0),openDeportation:this.openModalAt(1),openVisas:this.openModalAt(2),openCriminal:this.openModalAt(3),openNotary:this.openModalAt(4),openFamily:this.openModalAt(5),
+modalTitle:(AREA_INFO[s.modalIndex]||{}).title||'',modalDesc:(AREA_INFO[s.modalIndex]||{}).desc||'',
+isIcon0:s.modalIndex===0,isIcon1:s.modalIndex===1,isIcon2:s.modalIndex===2,isIcon3:s.modalIndex===3,isIcon4:s.modalIndex===4,isIcon5:s.modalIndex===5
+};
+}
+}
+</script>
+</body>
+</html>
